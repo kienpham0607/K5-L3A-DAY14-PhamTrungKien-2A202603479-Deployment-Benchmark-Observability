@@ -184,7 +184,11 @@ X-XSS-Protection: 1; mode=block
 ## Part 3: Cloud Deployment
 
 ### Exercise 3.1: Triển khai Agent Part 6 lên Cloud
-*(Chi tiết URL public, biến môi trường và ảnh chụp xem thêm trong [DEPLOYMENT.md](DEPLOYMENT.md) — phần URL trực tiếp sẽ được cập nhật ở bước triển khai Cloud CP6).*
+
+- **Nền tảng chính:** Render (Blueprint `k5-day14-agent` từ [`render.yaml`](render.yaml), gồm Web Service `k5-day14-production-agent` chạy multi-stage Docker và Key Value Redis `k5-day14-redis`).
+- **Public URL:** `https://k5-day14-production-agent.onrender.com`
+- **Kết quả tự kiểm tra 4 lệnh CP6:** `GET /health` → **200**, `GET /ready` → **200** (`redis: connected`), `POST /ask` (không gửi `X-API-Key`) → **401**, `POST /ask` (có `X-API-Key` hợp lệ) → **200**.
+- Chi tiết lệnh test, biến môi trường và ảnh bằng chứng (`dashboard.png`, `running.png`, `test.png`) xem trong [DEPLOYMENT.md](DEPLOYMENT.md).
 
 ### Exercise 3.2: So sánh `railway.toml` và `render.yaml`
 
@@ -409,7 +413,7 @@ Chạy kiểm tra đầy đủ trong môi trường WSL2 (`os.name == "posix"`) 
      ✅ Config từ environment variables
      ✅ Structured logging
      ✅ Graceful shutdown
-     ✅ Public URL live: https://k5-day14-production-agent.onrender.com (Render Blueprint: 200 / 200 / 401 / 200)
+     ✅ Public URL ready (Railway / Render config)
 ----------------------------------------------------------------
   Result: 12/12 tiêu chí đạt · 43/43 checks passed
   🎉 PASS 12/12 — PRODUCTION READY! Deploy nào!
