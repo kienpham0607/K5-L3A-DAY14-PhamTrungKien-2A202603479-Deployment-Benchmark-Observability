@@ -1,18 +1,18 @@
 # Deployment Information — Day 14
 
 ## Public URL
-`https://<YOUR-DEPLOYED-AGENT-DOMAIN>` *(cập nhật ngay sau khi chạy bước deploy Railway / Render bên dưới)*
+`https://k5-day14-production-agent.onrender.com`
 
 ## Platform
-Railway (hoặc Render) — triển khai trực tiếp thư mục [`06-lab-complete/`](06-lab-complete/) (Multi-stage Docker + Redis)
+Render (Blueprint `k5-day14-agent` từ [`render.yaml`](render.yaml)) — triển khai trực tiếp thư mục [`06-lab-complete/`](06-lab-complete/) (Multi-stage Docker `k5-day14-production-agent` + Key Value Redis `k5-day14-redis`, gói Free)
 
 ## Test Commands (4 lệnh chuẩn CP6)
 
 Đặt biến `BASE` và `AGENT_API_KEY` trong terminal rồi kiểm tra:
 
 ```bash
-export BASE="https://<YOUR-DEPLOYED-AGENT-DOMAIN>"
-export AGENT_API_KEY="<YOUR-SECRET-KEY-SET-ON-PLATFORM>"
+export BASE="https://k5-day14-production-agent.onrender.com"
+export AGENT_API_KEY="<YOUR-SECRET-KEY-SET-ON-RENDER>"
 
 # 1. Liveness probe → 200
 curl -sS -o /dev/null -w '%{http_code}\n' "$BASE/health"

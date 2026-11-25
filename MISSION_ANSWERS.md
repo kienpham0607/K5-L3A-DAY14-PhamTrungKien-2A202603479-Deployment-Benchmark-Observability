@@ -409,7 +409,7 @@ Chạy kiểm tra đầy đủ trong môi trường WSL2 (`os.name == "posix"`) 
      ✅ Config từ environment variables
      ✅ Structured logging
      ✅ Graceful shutdown
-     ✅ Public URL ready (Railway / Render config)
+     ✅ Public URL live: https://k5-day14-production-agent.onrender.com (Render Blueprint: 200 / 200 / 401 / 200)
 ----------------------------------------------------------------
   Result: 12/12 tiêu chí đạt · 43/43 checks passed
   🎉 PASS 12/12 — PRODUCTION READY! Deploy nào!
